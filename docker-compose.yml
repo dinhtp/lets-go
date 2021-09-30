@@ -1,0 +1,75 @@
+version: '3.5'
+
+services:
+  # Functional services
+  company-rest:
+    image: localhost:5000/company-service:latest
+    restart: always
+    command: company-service serve rest
+    environment:
+      - ADDRESS=company-rest:1400
+      - BACKEND=company-grpc:1401
+    ports:
+      - '1400:9000'
+    depends_on:
+      - "company-grpc"
+    hostname: company-rest
+    container_name: company-rest
+    networks:
+      - go
+
+  company-grpc:
+    image: localhost:5000/company-service:latest
+    restart: always
+    command: company-service serve grpc
+    environment:
+      - BACKEND=company-grpc:1401
+    ports:
+      - '1401:9000'
+    depends_on:
+      - "mysql"
+    hostname: company-grpc
+    container_name: company-grpc
+    networks:
+      - go
+
+  # New servies here
+
+  # Infrastructure services
+  mysql:
+    image: mysql:latest
+    restart: always
+    cap_add:
+      - ALL  # CAP_SYS_NICE
+    volumes:
+      - ./mysql/data:/var/lib/mysql
+    environment:
+      - MYSQL_DATABASE=go
+      - MYSQL_PASSWORD=root
+      - MYSQL_ROOT_PASSWORD=root
+    ports:
+      - '3306:3306'
+    hostname: mysql
+    container_name: mysql
+    networks:
+      - go
+
+  nginx:
+    image: nginx:latest
+    restart: always
+    volumes:
+      - ./spos-nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./spos-nginx/error_log.log:/etc/nginx/error_log.log
+    ports:
+      - '80:80'
+      - '443:443'
+    expose:
+      - '80'
+      - '443'
+    hostname: nginx
+    container_name: nginx
+    networks:
+      - go
+
+networks:
+  go:
