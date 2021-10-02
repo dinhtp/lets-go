@@ -1,6 +1,0 @@
-[submodule "lets-go-company"]
-	path = lets-go-company
-	url = git@github.com:dinhtp/lets-go-company.git
-[submodule "lets-go-project"]
-	path = lets-go-project
-	url = git@github.com:dinhtp/lets-go-project.git

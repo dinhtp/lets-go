@@ -24,6 +24,7 @@ services:
     command: company-service serve grpc
     environment:
       - BACKEND=company-grpc:1401
+      - MYSQLDSN=root:root@tcp(${LAN_IP}:3306)/go?charset=utf8mb4&parseTime=True&loc=Local
     ports:
       - '1401:9000'
     depends_on:
