@@ -15,14 +15,14 @@ This project consists of 4 repositories:
 4. [Project Service](https://github.com/dinhtp/lets-go-project)
 
 ##  Prerequisite
-- Preferred OS: Linux based (Ubuntu or Fedora)
-- Complete setup environment
-- Docker and docker compose with sudo permission
-- Git and Basic Git flow
-- Access to 4 **Let's go** project
-- Goland IDE (preferred)
-- Postman (preferred)
-- MySQL Workbench (preferred)
+- Preferred OS: Linux based (Ubuntu or Fedora).
+- Complete setup environment.
+- Docker and docker compose with sudo permission.
+- Git and Basic Git flow.
+- Access to 4 **Let's go** project.
+- Goland IDE (preferred).
+- Postman (preferred).
+- MySQL Workbench (preferred).
 
 ## How to use
 ### Docker command
@@ -46,21 +46,20 @@ For Linux users, the `hosts` file is located at `/etc/hosts` and or Windows user
 - To bring up all the services in the docker compose file, run `./up`.
 - Check if the service is up and running using `docker ps`.
 
-> NOTE: DO NOT commit changes directly into the master branch.
-
 ## Expected Output
 ### Docker
-- Docker basic
-- Docker image and container
-- Image registry
-- Docker file
-- Docker basic command: ps, logs, run, exec
-- Docker compose file (structure, syntax, conventions)
-- Docker service: image, command, env, volume, ports, name, network
-- Spin up the infrastructure services successfully in the docker compose file
+- Docker basic.
+- Docker image and container.
+- Image registry.
+- Docker file.
+- Docker basic command: ps, logs, run, exec.
+- Docker compose file (structure, syntax, conventions).
+- Docker service: image, command, env, volume, ports, name, network.
+- Spin up the infrastructure services successfully in the docker compose file.
 
 ### Nginx
-- Nginx basic 
-- Nginx config file
-- Server name, proxy pass, rewrite rules
+- Nginx basic.
+- Nginx config file.
+- Server name, proxy pass, rewrite rules.
 
+> NOTE: DO NOT commit changes directly into the master branch.
