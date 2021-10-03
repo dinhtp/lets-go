@@ -42,9 +42,9 @@ Each Rest service written and built by Golang will carry a domain name defined i
 With each domain name, it is required to update the `hosts` file so that your local machine forward the request correctly.
 For Linux users, the `hosts` file is located at `/etc/hosts` and or Windows users, at `C:\Windows\System32\drivers\etc\hosts`.
 
-- Update the service domain name in the `hosts` file. For example: `127.0.0.1 api-go-company.local.com`.
-- To bring up all the services in the docker compose file, run `./up`.
-- Check if the service is up and running using `docker ps`.
+- Update the service domain name in the `hosts` file. For example: `127.0.0.1 api-go-company.local.com`
+- To bring up all the services in the docker compose file, run `./up`
+- Check if the service is up and running using `docker ps`
 
 ## Expected Output
 ### Docker
