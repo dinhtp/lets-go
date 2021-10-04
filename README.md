@@ -17,6 +17,8 @@ This project consists of 4 repositories:
 ##  Prerequisite
 - Preferred OS: Linux based (Ubuntu or Fedora).
 - Complete setup environment.
+- protoc v3.15.6
+- protoc-gen-go v1.26.0
 - Docker and docker compose with sudo permission.
 - Git and Basic Git flow.
 - Access to 4 **Let's go** project.
