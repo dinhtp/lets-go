@@ -6,20 +6,20 @@
 # shellcheck disable=SC2016
 # shellcheck disable=SC1090
 
-read -p "Git Username:" gitUsername
-until [[ -n $gitUsername ]]; do read -p "Git Username:" gitUsername; done
+read -p "Git02 Username:" gitUsername
+until [[ -n $gitUsername ]]; do read -p "Git02 Username:" gitUsername; done
 
-read -p "Git Email:" gitEmail
-until [[ -n $gitEmail ]]; do read -p "Git Email:" gitEmail; done
+read -p "Git02 Email:" gitEmail
+until [[ -n $gitEmail ]]; do read -p "Git02 Email:" gitEmail; done
 
-echo "--- Configure Git Globally"
+echo "--- Configure Git02 Globally"
 git config --global user.name $gitUsername
 git config --global user.email $gitEmail
 git config --global push.default current
 git config --global url."https://git02.smartosc.com/production".insteadOf git@git02.smartosc.com:production
 
 echo "--- Install Golang (VersionID=5646;VersionNo=1.14;Channel=Stable)"
-snap install go --channel="1.14/stable" --classic
+snap install go --channel="1.16/stable" --classic
 go version
 
 echo "--- Setup project directory"
@@ -59,21 +59,31 @@ cp ./grpc/protoc-3.15.6-linux-x86_64/bin/protoc "$GO_DIR"/bin/protoc
 sudo ln -s "$GO_DIR"/bin/protoc /usr/local/bin/protoc
 sudo cp -r ./grpc/protoc-3.15.6-linux-x86_64/include /usr/local/include
 
-echo "--- Install protoc-gen-grpc-gateway for Go"
-go get -u github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway
-sudo ln -s "$GO_DIR"/bin/protoc-gen-grpc-gateway /usr/local/bin/protoc-gen-grpc-gateway
-
-echo "--- Install protoc-gen-swagger for Go"
-go get -u github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger
-sudo ln -s "$GO_DIR"/bin/protoc-gen-swagger /usr/local/bin/protoc-gen-swagger
-
-echo "--- Install protoc plugin for Go"
+echo "--- Install protoc-gen-go"
 go get -u google.golang.org/protobuf/cmd/protoc-gen-go
 sudo ln -s $GO_DIR/bin/protoc-gen-go /usr/local/bin/protoc-gen-go
 
-echo "--- Install protoc GRPC plugin for Go"
+echo "--- Install protoc-gen-gogo"
+go get -u github.com/gogo/protobuf/protoc-gen-gogo
+sudo ln -s $GO_DIR/bin/protoc-gen-gogo /usr/local/bin/protoc-gen-gogo
+
+echo "--- Install protoc-gen-go-grpc"
 go get -u google.golang.org/grpc/cmd/protoc-gen-go-grpc
 sudo ln -s "$GO_DIR"/bin/protoc-gen-go-grpc /usr/local/bin/protoc-gen-go-grpc
+
+echo "--- Install protoc-gen-govalidators"
+go get -u github.com/mwitkow/go-proto-validators/protoc-gen-govalidators
+sudo ln -s "$GO_DIR"/bin/protoc-gen-govalidators /usr/local/bin/protoc-gen-govalidators
+
+echo "--- Install protoc-gen-grpc-gateway"
+go get -u github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway
+sudo ln -s "$GO_DIR"/bin/protoc-gen-grpc-gateway /usr/local/bin/protoc-gen-grpc-gateway
+
+echo "--- Install protoc-gen-swagger"
+go get -u github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger
+sudo ln -s "$GO_DIR"/bin/protoc-gen-swagger /usr/local/bin/protoc-gen-swagger
+
+echo "--- All Protoc Plugins Installed"
 echo "--- Include protoc/include/google to /usr/local/include/google "
 
 echo "--- Install Kubernetes"
@@ -90,17 +100,6 @@ chmod +x ./aws-iam-authenticator
 mkdir -p "$HOME"/bin && cp ./aws-iam-authenticator "$HOME"/bin/aws-iam-authenticator && export PATH=$PATH:$HOME/bin
 echo 'export PATH=$PATH:$HOME/bin' >> ~/.bashrc
 
-
-echo "---------------------------------------------------------------"
-echo "Next steps:"
-echo "1. Ask your team leader/product manager to create your new account to access AWS IAM console and receive AWS Access Key ID and AWS Secret Access Key"
-echo "2. Type $(aws configure) in the command line interface and set the following information"
-echo "    AWS Access Key ID [None]: {Your AWS Access Key ID}"
-echo "    AWS Secret Access Key [None]: {Your AWS Secret Access Key}"
-echo "    Default region name [None]: eu-north-1"
-echo "    Default output format [None]: json"
-echo "3. Login to AWS ECR for deployment access by typing $(aws ecr get-login --no-include-email) and copy the result output, then execute the output command"
-echo "4. Build each of the services you have access to then start the whole infrastructure to develop!"
-echo "---------------------------------------------------------------"
-
-echo "DONE!"
+echo "================================================"
+echo "Environment Setup Completed!"
+echo "================================================"

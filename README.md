@@ -3,12 +3,18 @@
 ## What to do
 Congratulation on making it this far, next step is going to be a hands-on project called **Let's go**. This project will
 help you familiarize with the micro service architecture based on Golang, Cobra and Docker along with the service
-structure, coding conventions and basic workflow. In this project, you are going to develop a simple Create, Read, Update,
-Delete and List API resources for http client consumption. To have and overview on this project, please refer to the ERD below:
+structure, coding conventions and basic workflow. In this assignment, you are going to develop two services named **Company**
+and **Project** which perform Create, Read, Update, Delete and List action with a few calculation logic. 
+These APIs will be exposed to both HTTP and GRPC client
+using Google Protocol Buffer.
 
-![overview ERD](./asset/overview.png)
+### System architecture overview
+![System Overview](./asset/system-overview.png)
 
-This project consists of 4 repositories:
+### System database overview
+![System Overview](./asset/database-overview.png)
+  
+### This assignment consists of 4 repositories
 1. [Let's Go Docker](https://github.com/dinhtp/lets-go)
 2. [Let's Go Pbtype](https://github.com/dinhtp/lets-go-pbtype)
 3. [Company Service](https://github.com/dinhtp/lets-go-company)
