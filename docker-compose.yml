@@ -1,7 +1,7 @@
 version: '3.5'
 
 services:
-  # Functional services
+  # Functional services for company service
   go-company-rest:
     image: localhost:5000/go-company-service:latest
     restart: always
@@ -34,7 +34,38 @@ services:
     networks:
       - go
 
-  # New servies here
+  # Functional services for project service
+  go-project-rest:
+    image: localhost:5000/go-project-service:latest
+    restart: always
+    command: go-project-service serve rest
+    environment:
+      - ADDRESS=go-project-rest:1408
+      - BACKEND=go-project-grpc:1409
+    ports:
+      - '1408:9090'
+    depends_on:
+      - "go-project-grpc"
+    hostname: go-project-rest
+    container_name: go-project-rest
+    networks:
+      - go
+
+  go-project-grpc:
+    image: localhost:5000/go-project-service:latest
+    restart: always
+    command: go-project-service serve grpc
+    environment:
+      - BACKEND=go-project-grpc:1409
+      - MYSQLDSN=root:root@tcp(${LAN_IP}:3306)/go?charset=utf8mb4&parseTime=True&loc=Local
+    ports:
+      - '1409:9090'
+    depends_on:
+      - "mysql"
+    hostname: go-project-grpc
+    container_name: go-project-grpc
+    networks:
+      - go
 
   # Infrastructure services
   mysql:
