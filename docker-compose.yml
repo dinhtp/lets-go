@@ -17,7 +17,7 @@ services:
 #    container_name: go-company-rest
 #    networks:
 #      - go
-#
+
 #  go-company-grpc:
 #    image: localhost:5000/go-company-service:latest
 #    restart: always
