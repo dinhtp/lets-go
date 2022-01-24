@@ -38,8 +38,8 @@ using Google Protocol Buffer.
 ## How to use
 ### Docker command
 In order to speed up the processing of spinning up the services with in the `docker-compose.yml` file, 
-a few shell scripts are created to quickly get the LAN IP, bring up and down the docker services. It is also required to 
-take a look inside those scripts to understand the logic behind each command.
+a few shell scripts created to quickly get the LAN IP, bring up and down the docker services. 
+It is also required to take a look inside those scripts to understand the logic behind each command.
 
 During the first run or everytime your local machine LAN IP is changed, it is required to execute the `./start`
 command before bring up the docker services. Usually, this command is executed only once during each active session.
@@ -51,7 +51,8 @@ command before bring up the docker services. Usually, this command is executed o
 ### GO Rest Service
 Each Rest service written and built by Golang will carry a domain name defined in the `nginx.conf` file.
 With each domain name, it is required to update the `hosts` file so that your local machine forward the request correctly.
-For Linux users, the `hosts` file is located at `/etc/hosts` and or Windows users, at `C:\Windows\System32\drivers\etc\hosts`.
+For Linux users, the `hosts` file is located at `/etc/hosts`.
+For Windows users, the `hosts` file is located at `C:\Windows\System32\drivers\etc\hosts`.
 
 - Update the service domain name in the `hosts` file. For example: `127.0.0.1 api-go-company.local.com`
 - To bring up all the services in the docker compose file, run `./up`
@@ -74,4 +75,4 @@ For Linux users, the `hosts` file is located at `/etc/hosts` and or Windows user
 - Nginx config file.
 - Server name, proxy pass, rewrite rules.
 
-> NOTE: DO NOT commit changes directly into the master branch.
+> NOTE: Changes in this repository ARE NOT REQUIRED to be committed into Github
