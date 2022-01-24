@@ -1,5 +1,6 @@
 # Let's GO Fun The World
- 
+
+
 ## What to do
 Congratulation on making it this far, next step is going to be a hands-on project called **Let's go**. This project will
 help you familiarize with the micro service architecture based on Golang, Cobra and Docker along with the service
@@ -20,6 +21,7 @@ using Google Protocol Buffer.
 3. [Company Service](https://github.com/dinhtp/lets-go-company)
 4. [Project Service](https://github.com/dinhtp/lets-go-project)
 
+
 ##  Prerequisite
 - Preferred OS: Linux based (Ubuntu or Fedora).
 - Complete setup environment.
@@ -31,6 +33,7 @@ using Google Protocol Buffer.
 - Goland IDE (preferred).
 - Postman (preferred).
 - MySQL Workbench (preferred).
+
 
 ## How to use
 ### Docker command
@@ -53,6 +56,7 @@ For Linux users, the `hosts` file is located at `/etc/hosts` and or Windows user
 - Update the service domain name in the `hosts` file. For example: `127.0.0.1 api-go-company.local.com`
 - To bring up all the services in the docker compose file, run `./up`
 - Check if the service is up and running using `docker ps`
+
 
 ## Expected Output
 ### Docker
