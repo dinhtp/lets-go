@@ -2,12 +2,11 @@
 
 
 ## What to do
-Congratulation on making it this far, next step is going to be a hands-on project called **Let's go**. This project will
-help you familiarize with the micro service architecture based on Golang, Cobra and Docker along with the service
-structure, coding conventions and basic workflow. In this assignment, you are going to develop two services named **Company**
-and **Project** which perform Create, Read, Update, Delete and List action with a few calculation logic. 
-These APIs will be exposed to both HTTP and GRPC client
-using Google Protocol Buffer.
+This assignment will help you familiarize with the micro service architecture based on Golang, 
+Cobra and Docker along with the service structure, coding conventions and basic workflow. 
+In this assignment, you are going to develop two services named **Company** and **Project** which perform 
+Create, Read, Update, Delete and List action with a few calculation logic. 
+These APIs will be exposed to both HTTP and GRPC client using Google Protocol Buffer.
 
 ### System architecture overview
 ![System Overview](./asset/system-overview.png)
@@ -17,7 +16,7 @@ using Google Protocol Buffer.
   
 ### This assignment consists of 4 repositories
 1. [Let's Go Docker](https://github.com/dinhtp/lets-go)
-2. [Let's Go Pbtype](https://github.com/dinhtp/lets-go-pbtype)
+2. [Let's Go PbType](https://github.com/dinhtp/lets-go-pbtype)
 3. [Company Service](https://github.com/dinhtp/lets-go-company)
 4. [Project Service](https://github.com/dinhtp/lets-go-project)
 
@@ -29,10 +28,6 @@ using Google Protocol Buffer.
 - protoc-gen-go v1.26.0
 - Docker and docker compose with sudo permission.
 - Git and Basic Git flow.
-- Access to 4 **Let's go** project.
-- Goland IDE (preferred).
-- Postman (preferred).
-- MySQL Workbench (preferred).
 
 
 ## How to use
@@ -57,22 +52,5 @@ For Windows users, the `hosts` file is located at `C:\Windows\System32\drivers\e
 - Update the service domain name in the `hosts` file. For example: `127.0.0.1 api-go-company.local.com`
 - To bring up all the services in the docker compose file, run `./up`
 - Check if the service is up and running using `docker ps`
-
-
-## Expected Output
-### Docker
-- Docker basic.
-- Docker image and container.
-- Image registry.
-- Docker file.
-- Docker basic command: ps, logs, run, exec.
-- Docker compose file (structure, syntax, conventions).
-- Docker service: image, command, env, volume, ports, name, network.
-- Spin up the infrastructure services successfully in the docker compose file.
-
-### Nginx
-- Nginx basic.
-- Nginx config file.
-- Server name, proxy pass, rewrite rules.
 
 > NOTE: Changes in this repository ARE NOT REQUIRED to be committed into Github

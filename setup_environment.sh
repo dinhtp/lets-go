@@ -18,7 +18,7 @@ git config --global user.email $gitEmail
 git config --global push.default current
 git config --global url."https://git02.smartosc.com/production".insteadOf git@git02.smartosc.com:production
 
-echo "--- Install Golang (VersionID=5646;VersionNo=1.14;Channel=Stable)"
+echo "--- Install Golang (VersionID=5646;VersionNo=1.16;Channel=Stable)"
 snap install go --channel="1.16/stable" --classic
 go version
 
@@ -85,20 +85,6 @@ sudo ln -s "$GO_DIR"/bin/protoc-gen-swagger /usr/local/bin/protoc-gen-swagger
 
 echo "--- All Protoc Plugins Installed"
 echo "--- Include protoc/include/google to /usr/local/include/google "
-
-echo "--- Install Kubernetes"
-curl -LO "https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl"
-chmod +x ./kubectl
-sudo mv ./kubectl /usr/local/bin/kubectl
-kubectl version --client
-mkdir ~/.kube
-
-echo "--- Install AWS IAM authenticator"
-sudo apt-get install awscli
-curl -o aws-iam-authenticator https://amazon-eks.s3.us-west-2.amazonaws.com/1.17.9/2020-08-04/bin/linux/amd64/aws-iam-authenticator
-chmod +x ./aws-iam-authenticator
-mkdir -p "$HOME"/bin && cp ./aws-iam-authenticator "$HOME"/bin/aws-iam-authenticator && export PATH=$PATH:$HOME/bin
-echo 'export PATH=$PATH:$HOME/bin' >> ~/.bashrc
 
 echo "================================================"
 echo "Environment Setup Completed!"
